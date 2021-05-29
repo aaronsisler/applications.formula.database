@@ -29,6 +29,7 @@ jobs:
         with:
           method: delete
           stack_name: "dynamodb-table-tenants"
+          changeset_name: "dynamodb-table-tenants-changeset-name"
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: "us-east-1"
