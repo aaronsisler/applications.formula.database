@@ -5,6 +5,8 @@ Resources:
     Properties:
       TableName: "FORMULA_TENANTS"
       AttributeDefinitions:
+        - AttributeName: "TenantId"
+          AttributeType: "S"
         - AttributeName: "TenantName"
           AttributeType: "S"
       KeySchema:
