@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  TenantTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "FORMULA_TENANTS"
+      AttributeDefinitions:
+        - AttributeName: "TenantName"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "TenantId"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: "1"
+        WriteCapacityUnits: "1"
