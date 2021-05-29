@@ -7,8 +7,6 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "TenantId"
           AttributeType: "S"
-        - AttributeName: "TenantName"
-          AttributeType: "S"
       KeySchema:
         - AttributeName: "TenantId"
           KeyType: "HASH"
