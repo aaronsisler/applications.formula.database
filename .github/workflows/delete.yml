@@ -3,6 +3,8 @@
 
 name: Delete
 
+on: workflow_dispatch
+
 jobs:
   cfn-delete:
     runs-on: ubuntu-latest
