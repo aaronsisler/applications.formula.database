@@ -12,29 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Configure AWS credentials
-      #   id: set-credentials
-      #   uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: us-east-1
+      - name: Configure AWS credentials
+        id: set-credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
       - name: Create DynamoDB:Table:Tenants
         id: dynamodb-table-tenants-create
-        uses: mdecoleman/cloudformation-changeset@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          method: create
-          stack_name: "dynamodb-table-tenants"
-          changeset_name: "dynamodb-table-tenants-changeset"
-          template_file: "./cloudformation/dynamodb-table-tenants.yml"
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: "us-east-1"
-
-      # - name: Create DynamoDB:Table:Tenants
-      #   id: dynamodb-table-tenants-create
-      #   uses: aws-actions/aws-cloudformation-github-deploy@v1
-      #   with:
-      #     name: dynamodb-table-tenants
-      #     template: ./cloudformation/dynamodb-table-tenants.yml
+          name: dynamodb-table-tenants
+          template: ./cloudformation/dynamodb-table-tenants.yml
