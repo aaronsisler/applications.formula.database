@@ -3,13 +3,17 @@ Resources:
   TenantTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: "FORMULA_TENANTS"
+      TableName: "FORMULA_MAIN"
       AttributeDefinitions:
-        - AttributeName: "TenantId"
+        - AttributeName: "PrimaryKey"
+          AttributeType: "S"
+        - AttributeName: "SortKey"
           AttributeType: "S"
       KeySchema:
-        - AttributeName: "TenantId"
+        - AttributeName: "PrimaryKey"
           KeyType: "HASH"
+        - AttributeName: "SortKey"
+          KeyType: "SORT"
       ProvisionedThroughput:
         ReadCapacityUnits: "1"
         WriteCapacityUnits: "1"

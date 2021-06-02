@@ -20,9 +20,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Create DynamoDB:Table:Tenants
-        id: dynamodb-table-tenants-create
+      - name: Create DynamoDB:Table:Main
+        id: dynamodb-table-main-create
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: dynamodb-table-tenants
-          template: ./cloudformation/dynamodb-table-tenants.yml
+          name: dynamodb-table-main
+          template: ./cloudformation/dynamodb-table-main.yml
