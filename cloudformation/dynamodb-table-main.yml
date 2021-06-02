@@ -5,15 +5,15 @@ Resources:
     Properties:
       TableName: "FORMULA_MAIN"
       AttributeDefinitions:
-        - AttributeName: "PrimaryKey"
+        - AttributeName: "PartitionKey"
           AttributeType: "S"
         - AttributeName: "SortKey"
           AttributeType: "S"
       KeySchema:
-        - AttributeName: "PrimaryKey"
+        - AttributeName: "PartitionKey"
           KeyType: "HASH"
         - AttributeName: "SortKey"
-          KeyType: "SORT"
+          KeyType: "RANGE"
       ProvisionedThroughput:
         ReadCapacityUnits: "1"
         WriteCapacityUnits: "1"
